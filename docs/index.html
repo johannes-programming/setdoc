@@ -12,6 +12,46 @@
             <p>Set the doc string.</p>
         </div>
         <div id="install"></div>
+        <div id="implementation">
+            <h2>Implementation</h2>
+            <pre><code>
+import dataclasses
+from typing import *
+
+__all__ = ["setdoc"]
+
+
+@dataclasses.dataclass
+class setdoc:
+    'A class to set doc strings.'
+    doc: Any
+
+    def __call__(self, target: Any) -&gt; Any:
+        'Set the doc string of the passed target ' \
+        'to the value stored in the doc field ' \
+        'of the setdoc object.'
+        target.__doc__ = self.doc
+        return target
+</code></pre>
+        </div>
+        <div id="usage">
+            <h2>Usage</h2>
+            <pre><code>
+from setdoc import setdoc
+
+# Create a setdoc instance with the desired docstring
+doc_updater = setdoc("This function adds two numbers.")
+
+# Apply it to a target function
+@doc_updater
+def add(a, b):
+    return a + b
+
+# The function now has an updated docstring
+print(add.__doc__)
+# Output: This function adds two numbers.
+</code></pre>
+        </div>
         <div id="testing"></div>
         <div id="license"></div>
         <div id="links"></div>

@@ -2,4 +2,4 @@
 setdoc
 ======
 
-Visit the website `http://setdoc.johannes-programming.online <http://setdoc.johannes-programming.online>`_ for more information.
+Visit the website `https://setdoc.johannes-programming.online <https://setdoc.johannes-programming.online>`_ for more information.

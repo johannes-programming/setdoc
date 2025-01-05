@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
     <head>
         <title>setdoc</title>
     </head>
     <body>
-        <div id="top"></div>
-        <div id="overview">
-            <h2>Overview</h2>
-            <p>Set the doc string.</p>
-        </div>
-        <div id="install"></div>
-        <div id="implementation">
-            <h2>Implementation</h2>
-            <pre><code>
-import dataclasses
+        <dl class="heading0">
+            <dt><a>setdoc</a></dt>
+            <dd>
+                <dl class="heading1">
+                    <dt id="intro">Introduction</dt>
+                    <dd>
+                        <p>Set the doc string.</p>
+                    </dd>
+                    <dt id="install">Installation</dt>
+                    <dd id="installCorpus"></dd>
+                    <dt id="implement">Implementation</dt>
+                    <dd>
+                        <pre><code>import dataclasses
 from typing import *
 
 __all__ = ["setdoc"]
@@ -31,14 +32,11 @@ class setdoc:
         'to the value stored in the doc field ' \
         'of the setdoc object.'
         target.__doc__ = self.doc
-        return target
-
-</code></pre>
-        </div>
-        <div id="usage">
-            <h2>Usage</h2>
-            <pre><code>
-from setdoc import setdoc
+        return target</code></pre>
+                    </dd>
+                    <dt id="usage">Usage</dt>
+                    <dd>
+                        <pre><code>from setdoc import setdoc
 
 # Create a setdoc instance with the desired docstring
 doc_updater = setdoc("This function adds two numbers.")
@@ -50,17 +48,27 @@ def add(a, b):
 
 # The function now has an updated docstring
 print(add.__doc__)
-# Output: This function adds two numbers.
-
-</code></pre>
-        </div>
-        <div id="testing"></div>
-        <div id="license"></div>
-        <div id="links"></div>
-        <div id="credits"></div>
-        <script src="https://www.johannes-programming.online/script.js"></script>
-        <script>
-            setupBasicProject();
-        </script>
+# Output: This function adds two numbers.</code></pre>
+                    </dd>
+                    <dt id="testing">Testing</dt>
+                    <dd id="testingCorpus"></dd>
+                    <dt id="license">License</dt>
+                    <dd id="licenseCorpus"></dd>
+                    <dt id="links">Links</dt>
+                    <dd id="linksCorpus"></dd>
+                    <dt id="impressum">Impressum</dt>
+                    <dd id="impressumCorpus"></dd>
+                </dl>
+            </dd>
+        </dl>
     </body>
+    <script src="https://www.johannes-programming.online/script.js"></script>
+    <script>
+        setupInstallCorpus("setdoc");
+        setupTestingCorpus("setdoc");
+        setupLicenseCorpus("setdoc");
+        setupLinksCorpus("setdoc");
+        setupImpressumCorpus("setdoc");
+        addMetaAndLinkTags();
+    </script>
 </html>

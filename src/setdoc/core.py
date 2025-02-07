@@ -7,6 +7,7 @@ __all__ = ["setdoc"]
 @dataclasses.dataclass
 class setdoc:
     "A class to set doc strings."
+
     doc: Any
 
     def __call__(self, target: Any) -> Any:

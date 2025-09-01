@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <title>setdoc</title>
     </head>
@@ -53,19 +53,29 @@
                     </dd>
                     <dt id="usage">Usage</dt>
                     <dd>
-                        <pre id="block"><code>from setdoc import setdoc
+                        <pre id="block"><code>from typing import *
+from setdoc import setdoc
 
 # Create a setdoc instance with the desired docstring
 doc_updater = setdoc("This function adds two numbers.")
 
 # Apply it to a target function
 @doc_updater
-def add(a, b):
+def add(a: int, b: int) -> int:
     return a + b
 
 # The function now has an updated docstring
 print(add.__doc__)
-# Output: This function adds two numbers.</code></pre>
+# Output: This function adds two numbers.
+
+# Apply it directly to another target function
+@setdoc("This function multiplies two numbers.")
+def mul(a: int, b: int) -> int:
+    return a * b
+
+# The function now has an updated docstring
+print(mul.__doc__)
+# Output: This function multiplies two numbers.</code></pre>
                     </dd>
                     <dt id="testing">Testing</dt>
                     <dd id="testingCorpus"></dd>

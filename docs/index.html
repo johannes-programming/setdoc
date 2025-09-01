@@ -14,25 +14,42 @@
                     </dd>
                     <dt id="install">Installation</dt>
                     <dd id="installCorpus"></dd>
-                    <dt id="implement">Implementation</dt>
+                    <dt id="features">Features</dt>
                     <dd>
-                        <pre id="block"><code>import dataclasses
-from typing import *
-
-__all__ = ["setdoc"]
-
-
-@dataclasses.dataclass
-class setdoc:
-    'A class to set doc strings.'
-    doc: Any
-
-    def __call__(self, target: Any) -&gt; Any:
-        'Set the doc string of the passed target ' \
-        'to the value stored in the doc field ' \
-        'of the setdoc object.'
-        target.__doc__ = self.doc
-        return target</code></pre>
+                        <dl class="heading4">
+                            <dt id="SetDoc">class setdoc.SetDoc(doc: Any)</dt>
+                            <dd>
+                                <p>
+                                    The instances of dataclass function as decorators 
+                                    that set the docstring of the decorated to the value of <code>doc</code>.
+                                </p>
+                                <dl class="heading4">
+                                    <dt id="SetDoc.__call__">__call__(target: Any) -> Any</dt>
+                                    <dd>
+                                        <p>
+                                            This magic method implements calling the current instance.
+                                            It sets <code>target.__doc__</code> 
+                                            to <a href="#SetDoc.doc"><code>doc</code></a>.
+                                        </p>
+                                    </dd>
+                                    <dt id="SetDoc.doc">doc: Any</dt>
+                                    <dd>
+                                        <p>
+                                            The value that is used for <code>__doc__</code>.
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dt>setdoc</dt>
+                            <dd>
+                                <p>
+                                    This module variable 
+                                    is alias for 
+                                    <a href="#SetDoc"><code>SetDoc</code></a>
+                                    included for legacy.
+                                </p>
+                            </dd>
+                        </dl>
                     </dd>
                     <dt id="usage">Usage</dt>
                     <dd>

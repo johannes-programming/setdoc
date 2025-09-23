@@ -5,7 +5,7 @@ import tomllib
 from importlib import resources
 from typing import *
 
-__all__ = ["SetDoc", "setdoc", "basic"]
+__all__ = ["SetDoc", "setdoc", "basic", "getbasicdoc"]
 
 
 class Util(enum.Enum):

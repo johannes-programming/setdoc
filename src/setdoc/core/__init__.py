@@ -36,5 +36,10 @@ setdoc = SetDoc  # legacy
 
 def basic(value: Any) -> Any:
     "This decorator sets the docstring of the given value to what is suggested by its name."
-    value.__doc__ = Util.util.data["basic"][value.__name__]
+    value.__doc__ = getbasicdoc(value.__name__)
     return value
+
+
+def getbasicdoc(name: str) -> str:
+    "This function returns the basic docstring for a given name."
+    return Util.util.data["basic"][name]

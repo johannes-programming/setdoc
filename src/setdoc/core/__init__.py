@@ -5,7 +5,7 @@ import tomllib
 from importlib import resources
 from typing import *
 
-__all__ = ["SetDoc", "setdoc", "basic", "getbasicdoc"]
+__all__ = ["SetDoc", "basic", "getbasicdoc", "setdoc"]
 
 
 class Util(enum.Enum):
@@ -14,9 +14,9 @@ class Util(enum.Enum):
     @functools.cached_property
     def data(self: Self) -> dict:
         "This cached property holds the cfg data."
-        text: str = resources.read_text("setdoc.core", "cfg.toml")
-        ans: dict = tomllib.loads(text)
-        return ans
+        text: str
+        text = resources.read_text("setdoc.core", "cfg.toml")
+        return tomllib.loads(text)
 
 
 @dataclasses.dataclass

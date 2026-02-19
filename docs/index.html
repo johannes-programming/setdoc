@@ -5,7 +5,17 @@
     </head>
     <body>
         <dl class="heading0">
-            <dt><a>setdoc</a></dt>
+            <dt>
+                <a>setdoc</a>
+                <p>
+                    Minor Version:
+                    <select id="version">
+                        <option>1.0</option>
+                        <option>1.1</option>
+                        <option selected>1.2</option>
+                    </select>
+                </p>
+            </dt>
             <dd>
                 <dl class="heading1">
                     <dt id="intro">Introduction</dt>
@@ -16,7 +26,7 @@
                     <dd id="installCorpus"></dd>
                     <dt id="features">Features</dt>
                     <dd>
-                        <dl class="heading4">
+                        <dl class="heading4" version="1.0 1.1 1.2">
                             <dt id="SetDoc">class setdoc.SetDoc(doc: Any)</dt>
                             <dd>
                                 <p>
@@ -40,7 +50,15 @@
                                     </dd>
                                 </dl>
                             </dd>
-                            <dt>setdoc</dt>
+                            <dt version="1.1 1.2">setdoc.basic</dt>
+                            <dd version="1.1 1.2">
+                                <div class="minor minor-added">
+                                    <p>
+                                        <span>Added in version 1.1.</span>
+                                    </p>
+                                </div>
+                            </dd>
+                            <dt>setdoc.setdoc</dt>
                             <dd>
                                 <p>
                                     This module variable 
@@ -48,12 +66,8 @@
                                     <a href="#SetDoc"><code>SetDoc</code></a>
                                     included for legacy.
                                 </p>
-                            </dd>
-                        </dl>
-                    </dd>
-                    <dt id="usage">Usage</dt>
-                    <dd>
-                        <pre id="block"><code>from typing import *
+                                <p>Usage:</p>
+                                <pre id="block"><code>from typing import *
 from setdoc import setdoc
 
 # Create a setdoc instance with the desired docstring
@@ -76,9 +90,11 @@ def mul(a: int, b: int) -> int:
 # The function now has an updated docstring
 print(mul.__doc__)
 # Output: This function multiplies two numbers.</code></pre>
+                            </dd>
+                            <dt id="1--test">setdoc.test() -> unittest.TextTestResult</dt>
+                            <dd class="testingCorpus"></dd>
+                        </dl>
                     </dd>
-                    <dt id="testing">Testing</dt>
-                    <dd id="testingCorpus"></dd>
                     <dt id="license">License</dt>
                     <dd id="licenseCorpus"></dd>
                     <dt id="links">Links</dt>

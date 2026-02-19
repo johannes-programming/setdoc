@@ -27,12 +27,37 @@
                     <dt id="features">Features</dt>
                     <dd>
                         <dl class="heading4" version="1.0 1.1 1.2">
-                            <dt id="SetDoc">class setdoc.SetDoc(doc: Any)</dt>
+                            <dt id="1--SetDoc">class setdoc.SetDoc(doc: Any)</dt>
                             <dd>
                                 <p>
                                     The instances of dataclass function as decorators 
                                     that set the docstring of the decorated to the value of <code>doc</code>.
                                 </p>
+                                <p>Usage:</p>
+                                <pre id="block"><code>from typing import *
+from setdoc import SetDoc
+
+# Create a setdoc instance with the desired docstring
+doc_updater: SetDoc
+doc_updater = SetDoc("This function adds two numbers.")
+
+# Apply it to a target function
+@doc_updater
+def add(a: int, b: int) -> int:
+    return a + b
+
+# The function now has an updated docstring
+print(add.__doc__)
+# Output: This function adds two numbers.
+
+# Apply it directly to another target function
+@SetDoc("This function multiplies two numbers.")
+def mul(a: int, b: int) -> int:
+    return a * b
+
+# The function now has an updated docstring
+print(mul.__doc__)
+# Output: This function multiplies two numbers.</code></pre>
                                 <dl class="heading4">
                                     <dt id="SetDoc.__call__">__call__(target: Any) -> Any</dt>
                                     <dd>
@@ -50,7 +75,7 @@
                                     </dd>
                                 </dl>
                             </dd>
-                            <dt version="1.1 1.2">setdoc.basic</dt>
+                            <dt version="1.1 1.2">setdoc.basic(value: Any) -> Any</dt>
                             <dd version="1.1 1.2">
                                 <div class="minor minor-added">
                                     <p>
@@ -66,38 +91,14 @@
                                     </p>
                                 </div>
                             </dd>
-                            <dt>setdoc.setdoc</dt>
+                            <dt>setdoc.setdoc = setdoc.SetDoc</dt>
                             <dd>
                                 <p>
                                     This module variable 
                                     is alias for 
-                                    <a href="#SetDoc"><code>SetDoc</code></a>
+                                    <a href="#1--SetDoc"><code>SetDoc</code></a>
                                     included for legacy.
                                 </p>
-                                <p>Usage:</p>
-                                <pre id="block"><code>from typing import *
-from setdoc import setdoc
-
-# Create a setdoc instance with the desired docstring
-doc_updater = setdoc("This function adds two numbers.")
-
-# Apply it to a target function
-@doc_updater
-def add(a: int, b: int) -> int:
-    return a + b
-
-# The function now has an updated docstring
-print(add.__doc__)
-# Output: This function adds two numbers.
-
-# Apply it directly to another target function
-@setdoc("This function multiplies two numbers.")
-def mul(a: int, b: int) -> int:
-    return a * b
-
-# The function now has an updated docstring
-print(mul.__doc__)
-# Output: This function multiplies two numbers.</code></pre>
                             </dd>
                             <dt id="1--test">setdoc.test() -> unittest.TextTestResult</dt>
                             <dd class="testingCorpus"></dd>
@@ -121,7 +122,7 @@ print(mul.__doc__)
             setupLinksCorpus,
             setupTestingCorpus,
             addMetaAndLinkTags,
-        } from "https://www.johannes-programming.online/script.js";
+        } from "https://www.johannes-programming.online/main.js";
         setupInstallCorpus("setdoc");
         setupTestingCorpus("setdoc");
         setupLicenseCorpus("setdoc");

@@ -89,8 +89,15 @@ print(mul.__doc__)
             </dd>
         </dl>
     </body>
-    <script src="https://www.johannes-programming.online/script.js"></script>
-    <script>
+    <script type="module">
+        import {
+            setupImpressumCorpus,
+            setupInstallCorpus,
+            setupLicenseCorpus,
+            setupLinksCorpus,
+            setupTestingCorpus,
+            addMetaAndLinkTags,
+        } from "https://www.johannes-programming.online/script.js";
         setupInstallCorpus("setdoc");
         setupTestingCorpus("setdoc");
         setupLicenseCorpus("setdoc");

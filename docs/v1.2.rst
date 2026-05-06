@@ -9,7 +9,7 @@ Installation
 To install setdoc, you can use pip. Open your terminal and run:
 
 .. code-block:: shell
-    
+
     pip install setdoc
 
 Features
@@ -23,7 +23,7 @@ The instances of dataclass function as decorators that set the docstring of the 
 Usage:
 
 .. code-block:: python
-        
+
     from typing import *
     from setdoc import SetDoc
 
@@ -63,14 +63,14 @@ The value that is used for ``__doc__``.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. container:: versionadded
-    
+
     **Added in version 1.1.**
 
 ``setdoc.getbasicdoc(name: str) -> str``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. container:: versionadded
-    
+
     **Added in version 1.2.**
 
 ``setdoc.setdoc = setdoc.SetDoc``

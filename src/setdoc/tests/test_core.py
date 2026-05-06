@@ -92,7 +92,7 @@ class TestSetDocDecorator(unittest.TestCase):
 
     def test_setdoc_on_nested_function(self: Self) -> None:
         # Test the decorator on a nested function
-        def outer_func() -> None:
+        def outer_func() -> types.FunctionType:
             @setdoc("This is a nested function")
             def inner_func() -> None:
                 pass

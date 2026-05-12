@@ -6,17 +6,11 @@ This project helps to set the doc string.
 Installation
 ------------
 
-To install ``setdoc``, you can use ``pip``.
-Open your terminal and run:
+To install setdoc, you can use pip. Open your terminal and run:
 
 .. code-block:: shell
-
+    
     pip install setdoc
-
-Typing
-------
-
-This project is (not strictly) typed in accordance with ``mypy``.
 
 Features
 --------
@@ -24,13 +18,12 @@ Features
 ``class setdoc.SetDoc(doc: Any)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The instances of this ``dataclass`` work as decorators
-that set the docstring of the decorated ``target`` to ``doc``.
+The instances of dataclass function as decorators that set the docstring of the decorated to the value of doc.
 
 Usage:
 
 .. code-block:: python
-
+        
     from typing import *
     from setdoc import SetDoc
 
@@ -59,28 +52,27 @@ Usage:
 ``__call__(target: Any) -> Any``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This magic method implements calling the current instance.
-It sets ``target.__doc__`` to ``doc``.
+This magic method implements calling the current instance. It sets ``target.__doc__`` to ``doc``.
 
 ``doc: Any``
 ^^^^^^^^^^^^
 
-This value that is used for ``__doc__``.
+The value that is used for ``__doc__``.
 
 ``setdoc.setdoc = setdoc.SetDoc``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module variable is alias for ``SetDoc`` included for legacy.
+This module variable is alias for SetDoc included for legacy.
 
-``setdoc.tests.test() -> unittest.TextTestResult``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``setdoc.test() -> unittest.TextTestResult``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This project can be tested through its test function.
 
 .. code-block:: python
 
-    import setdoc.tests
-    setdoc.tests.test()
+    import setdoc
+    setdoc.test()
 
 License
 -------

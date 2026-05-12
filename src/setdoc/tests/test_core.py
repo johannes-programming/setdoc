@@ -88,13 +88,14 @@ class TestSetDocDecorator(unittest.TestCase):
 
     def test_setdoc_on_nested_function(self: Self) -> None:
         # Test the decorator on a nested function
-        def outer_func() -> None:
+        def outer_func() -> Any:
             @setdoc("This is a nested function")
             def inner_func() -> None:
                 pass
 
             return inner_func
 
+        nested_func: Any
         nested_func = outer_func()
         self.assertEqual(nested_func.__doc__, "This is a nested function")
 

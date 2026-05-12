@@ -1,3 +1,4 @@
+import types
 import unittest
 from typing import *
 
@@ -29,6 +30,7 @@ class TestSetDocDecorator(unittest.TestCase):
             def my_method(self: Self) -> None:
                 pass
 
+        instance: MyClass
         instance = MyClass()
         self.assertEqual(instance.my_method.__doc__, "This is a test method")
 
@@ -49,7 +51,8 @@ class TestSetDocDecorator(unittest.TestCase):
             def __init__(self, x):
                 self.x = x
 
-        instance: InitClass = InitClass(5)
+        instance: InitClass
+        instance = InitClass(5)
         self.assertEqual(InitClass.__doc__, "This is a class with __init__")
         self.assertEqual(instance.__doc__, "This is a class with __init__")
 
@@ -72,7 +75,8 @@ class TestSetDocDecorator(unittest.TestCase):
             def value(self: Self) -> None:
                 return self._value
 
-        instance: PropertyClass = PropertyClass(10)
+        instance: PropertyClass
+        instance = PropertyClass(10)
         self.assertEqual(PropertyClass.value.__doc__, "This is a property")
         self.assertEqual(instance.value, 10)
 
@@ -95,6 +99,7 @@ class TestSetDocDecorator(unittest.TestCase):
 
             return inner_func
 
+        nested_func: types.FunctionType
         nested_func = outer_func()
         self.assertEqual(nested_func.__doc__, "This is a nested function")
 

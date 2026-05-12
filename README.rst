@@ -2,4 +2,6 @@
 setdoc
 ======
 
-Visit the website `https://setdoc.johannes-programming.online/ <https://setdoc.johannes-programming.online/>`_ for more information.
+Each minor version has its own documentation.
+These docs can be found as rst-files the ``docs/`` directory of this project.
+They can also be viewed on the website `https://setdoc.johannes-programming.online/ <https://setdoc.johannes-programming.online/>`_.

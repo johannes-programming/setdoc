@@ -81,7 +81,7 @@ This value that is used for ``__doc__``.
 
 This module variable is alias for ``SetDoc`` included for legacy.
 
-``setdoc.test() -> unittest.TextTestResult``
+``setdoc.tests.test() -> unittest.TextTestResult``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This project can be tested through its test function.

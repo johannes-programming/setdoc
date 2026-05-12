@@ -1,15 +1,16 @@
-import types
 import unittest
-from typing import *
+from typing import Any, Self
 
-from setdoc.core import setdoc
+from setdoc.core.SetDoc import SetDoc
+
+__all__ = ["TestSetDocDecorator"]
 
 
 class TestSetDocDecorator(unittest.TestCase):
 
     def test_setdoc_on_function(self: Self) -> None:
         # Test the decorator on a standalone function
-        @setdoc("This is a test function")
+        @SetDoc("This is a test function")
         def test_func() -> None:
             pass
 
@@ -17,7 +18,7 @@ class TestSetDocDecorator(unittest.TestCase):
 
     def test_setdoc_on_class(self: Self) -> None:
         # Test the decorator on a class
-        @setdoc("This is a test class")
+        @SetDoc("This is a test class")
         class TestClass:
             pass
 
@@ -26,7 +27,7 @@ class TestSetDocDecorator(unittest.TestCase):
     def test_setdoc_on_class_method(self: Self) -> None:
         # Test the decorator on a class method
         class MyClass:
-            @setdoc("This is a test method")
+            @SetDoc("This is a test method")
             def my_method(self: Self) -> None:
                 pass
 
@@ -38,17 +39,19 @@ class TestSetDocDecorator(unittest.TestCase):
         # Test the decorator on a static method
         class MyClass:
             @staticmethod
-            @setdoc("This is a static method")
+            @SetDoc("This is a static method")
             def my_static_method() -> None:
                 pass
 
-        self.assertEqual(MyClass.my_static_method.__doc__, "This is a static method")
+        self.assertEqual(
+            MyClass.my_static_method.__doc__, "This is a static method"
+        )
 
     def test_setdoc_on_class_with_init(self: Self) -> None:
         # Test the decorator on a class that has an __init__ method
-        @setdoc("This is a class with __init__")
+        @SetDoc("This is a class with __init__")
         class InitClass:
-            def __init__(self, x):
+            def __init__(self: Self, x: Any) -> None:
                 self.x = x
 
         instance: InitClass
@@ -58,7 +61,7 @@ class TestSetDocDecorator(unittest.TestCase):
 
     def test_setdoc_with_none_doc(self: Self) -> None:
         # Test with None to see if it handles absence of documentation
-        @setdoc(None)
+        @SetDoc(None)
         def none_doc_func() -> None:
             pass
 
@@ -71,8 +74,8 @@ class TestSetDocDecorator(unittest.TestCase):
                 self._value = value
 
             @property
-            @setdoc("This is a property")
-            def value(self: Self) -> None:
+            @SetDoc("This is a property")
+            def value(self: Self) -> Any:
                 return self._value
 
         instance: PropertyClass
@@ -84,28 +87,30 @@ class TestSetDocDecorator(unittest.TestCase):
         # Test the decorator on a class method
         class MyClass:
             @classmethod
-            @setdoc("This is a class method")
+            @SetDoc("This is a class method")
             def my_class_method(cls: type) -> None:
                 pass
 
-        self.assertEqual(MyClass.my_class_method.__doc__, "This is a class method")
+        self.assertEqual(
+            MyClass.my_class_method.__doc__, "This is a class method"
+        )
 
     def test_setdoc_on_nested_function(self: Self) -> None:
         # Test the decorator on a nested function
-        def outer_func() -> types.FunctionType:
-            @setdoc("This is a nested function")
+        def outer_func() -> Any:
+            @SetDoc("This is a nested function")
             def inner_func() -> None:
                 pass
 
             return inner_func
 
-        nested_func: types.FunctionType
+        nested_func: Any
         nested_func = outer_func()
         self.assertEqual(nested_func.__doc__, "This is a nested function")
 
     def test_setdoc_on_function_with_existing_doc(self: Self) -> None:
         # Test if decorator replaces an existing docstring
-        @setdoc("New docstring")
+        @SetDoc("New docstring")
         def pre_doc_func() -> None:
             "Old docstring"
             pass

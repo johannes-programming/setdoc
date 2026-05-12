@@ -1,0 +1,105 @@
+Introduction
+------------
+
+This project helps to set the doc string.
+
+Installation
+------------
+
+To install setdoc, you can use pip. Open your terminal and run:
+
+.. code-block:: shell
+    
+    pip install setdoc
+
+Features
+--------
+
+``class setdoc.SetDoc(doc: Any)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The instances of dataclass function as decorators that set the docstring of the decorated to the value of doc.
+
+Usage:
+
+.. code-block:: python
+        
+    from typing import *
+    from setdoc import SetDoc
+
+    # Create a setdoc instance with the desired docstring
+    doc_updater: SetDoc
+    doc_updater = SetDoc("This function adds two numbers.")
+
+    # Apply it to a target function
+    @doc_updater
+    def add(a: int, b: int) -> int:
+        return a + b
+
+    # The function now has an updated docstring
+    print(add.__doc__)
+    # Output: This function adds two numbers.
+
+    # Apply it directly to another target function
+    @SetDoc("This function multiplies two numbers.")
+    def mul(a: int, b: int) -> int:
+        return a * b
+
+    # The function now has an updated docstring
+    print(mul.__doc__)
+    # Output: This function multiplies two numbers.
+
+``__call__(target: Any) -> Any``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This magic method implements calling the current instance. It sets ``target.__doc__`` to ``doc``.
+
+``doc: Any``
+^^^^^^^^^^^^
+
+The value that is used for ``__doc__``.
+
+``setdoc.basic(value: Any) -> Any``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container:: versionadded
+    
+    **Added in version 1.1.**
+
+``setdoc.setdoc = setdoc.SetDoc``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module variable is alias for SetDoc included for legacy.
+
+``setdoc.test() -> unittest.TextTestResult``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This project can be tested through its test function.
+
+.. code-block:: python
+
+    import setdoc
+    setdoc.test()
+
+License
+-------
+
+This project is licensed under the MIT License.
+
+Links
+-----
+
+- Download: https://pypi.org/project/setdoc/#files
+- Index: https://pypi.org/project/setdoc/
+- Source: https://github.com/johannes-programming/setdoc/
+- Website: https://setdoc.johannes-programming.online/
+
+Impressum
+---------
+
+**Johannes Programming**
+
+- Name: Johannes
+- Email: johannes.programming@gmail.com
+- Homepage: https://www.johannes-programming.online/
+- Gravatar: https://www.johannes-programming.fyi/

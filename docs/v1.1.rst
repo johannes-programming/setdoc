@@ -13,6 +13,11 @@ Open your terminal and run:
 
     pip install setdoc
 
+Typing
+------
+
+This project is (not strictly) typed in accordance with ``mypy``.
+
 Features
 --------
 

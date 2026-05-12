@@ -24,7 +24,7 @@ keywords = []
 name = "setdoc"
 readme = "README.rst"
 requires-python = ">=3.11"
-version = "1.2.6"
+version = "1.2.7"
 
 [project.license]
 file = "LICENSE.txt"

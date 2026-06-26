@@ -1,9 +1,9 @@
+__all__: list[str] = ["TestSetDocDecorator"]
+
 import unittest
 from typing import Any, Self
 
 from setdoc.core.SetDoc import SetDoc
-
-__all__ = ["TestSetDocDecorator"]
 
 
 class TestSetDocDecorator(unittest.TestCase):

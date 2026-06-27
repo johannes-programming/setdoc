@@ -133,4 +133,5 @@ symmetric_difference_update = "Update self with the items that are in either sel
 test = "Run all tests."
 to_bytes = "Return the bytes representation of self."
 union = "Return all items that are in any container."
+update = "Update self."
 values = "Return all values with defined keys."

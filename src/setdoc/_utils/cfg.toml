@@ -1,4 +1,8 @@
 [basic]
+__mutate__ = "Return context manager for mutable data."
+__frozen__ = "Return frozen data."
+__Mutable__ = "Provide annotation for target of __mutate__."
+__Frozen__ = "Provide annotation for return of __frozen__."
 __abs__ = "Return the absolute value of self."
 __add__ = "Add other to self and return the result."
 __aiter__ = "Return an async iterator over self."

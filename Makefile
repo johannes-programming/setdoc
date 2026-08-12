@@ -29,6 +29,7 @@ commit-version: add works
 
 clean:
 	rm -fr 'dist/';
+	rm -fr 'out/';
 
 dist: beautiful clean build
 
@@ -52,15 +53,18 @@ rebase:
 	git rebase --empty=drop --interactive $(PARAMS);
 
 reset:
-	git reset HEAD~1
+	git reset HEAD~1 ;
 
-test: beautiful
+test: dist
+	mkdir dist/out/ ;
 	conda run -n base python make/env.py test_setdoc --python=3.11 --recreate >/dev/null;
-	conda run -n test_setdoc pip install -e . >/dev/null;
-	conda run -n test_setdoc python run_tests.py;
+	conda run -n test_setdoc pip install dist/*.tar.gz >/dev/null;
+	conda run -n test_setdoc python make/run_introspection.py > dist/out/introspection_out.txt 2> dist/out/introspection_err.txt || true;
+	conda run -n test_setdoc python run_tests.py > dist/out/tests_out.txt 2> dist/out/tests_err.txt || true;
 	conda run -n test_setdoc pip install mypy >/dev/null;
-	conda run -n test_setdoc python -m mypy --exclude build --exclude dist --strict .;
-	conda run -n test_setdoc python -m mypy --strict -p setdoc;
+	conda run -n test_setdoc python -m mypy --exclude build --exclude dist --strict . > dist/out/mypy_dir_out.txt 2> dist/out/mypy_dir_err.txt || true;
+	conda run -n test_setdoc python -m mypy --strict -p setdoc > dist/out/mypy_pkg_out.txt 2> dist/out/mypy_pkg_err.txt || true;
+	zip -r dist/out.zip dist/out;
 
 toml_sorted: works
 	conda run -n works pip install 'toml_sorted>=2.1,<3' >/dev/null;

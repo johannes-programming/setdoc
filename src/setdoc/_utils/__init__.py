@@ -11,8 +11,8 @@ class Cfg(enum.Enum):
     cfg = None
 
     @functools.cached_property
-    def basic(self: Self) -> dict[str, Any]:
-        return cast(dict[str, Any], self.data["basic"])
+    def basic(self: Self) -> dict[str, str]:
+        return cast(dict[str, str], self.data["basic"])
 
     @functools.cached_property
     def data(self: Self) -> dict[str, Any]:

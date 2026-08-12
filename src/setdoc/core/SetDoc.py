@@ -1,5 +1,5 @@
 import dataclasses
-from typing import Optional, Self, TypeVar
+from typing import Self, TypeVar
 
 from setdoc.typing.SupportsDoc import SupportsDoc
 
@@ -12,7 +12,7 @@ Target = TypeVar("Target", bound=SupportsDoc)
 class SetDoc:
     "This class helps to set doc strings."
 
-    doc: Optional[str]
+    doc: str | None
 
     def __call__(self: Self, target: Target) -> Target:
         "This magic method implements calling the current instance. It sets the doc string of the passed target to the value stored in the doc field of the setdoc object."

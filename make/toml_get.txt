@@ -3,3 +3,4 @@
 --key=version
 --default=unknown
 --outstring=-mVersion %s
+--

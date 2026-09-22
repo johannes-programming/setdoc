@@ -1,4 +1,5 @@
 --sort
 --sort
 --key=basic
+--
 src/setdoc/_utils/cfg.toml
